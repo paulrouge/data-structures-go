@@ -23,10 +23,21 @@ func main() {
 	// Prepend the node to the linked list.
 	ll.Prepend(&n2)
 
+	n3 := linkedlists.Node{Value:192}
+	ll.Append(&n3)
+
 	// Print the linked list.
-	fmt.Println(ll.Length)
+	// fmt.Println(ll)
+	ll.PrintAll()
+	
+	// new node
+	n4 := linkedlists.Node{Value: 66}
 
-	// Find a node in the linked list.
-	fmt.Println(ll.Find(100))
+	// insert new node 
+	ll.Insert(2,&n4)
 
+	// search
+	fmt.Println("---------")
+	ll.PrintAll()
+	
 }
