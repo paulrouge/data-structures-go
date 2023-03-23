@@ -1,5 +1,7 @@
 package linkedlists
 
+import "fmt"
+
 // Append adds a node to the end of the linked list.
 func (l *LinkedList) Append(n *Node) {
 	if l.Head == nil {
@@ -47,5 +49,42 @@ func (l *LinkedList) Delete(v int) {
 			l.Length--
 		}
 	}
+}
 
+// Insert insert a node based on givin index.
+func (l *LinkedList) Insert(index int, n *Node) error {
+	if index < 0 || index > l.Length {
+		return fmt.Errorf("index %d out of bounds for linked list of length %d", index, l.Length)
+	}
+
+	if index == 0 {
+		l.Prepend(n)
+		return nil
+	}
+
+	if index == l.Length {
+		l.Append(n)
+		return nil
+	}
+
+	currentNode := l.Head
+	for i := 0; i < index-1; i++ {
+		currentNode = currentNode.Next
+	}
+
+	n.Next = currentNode.Next
+	currentNode.Next = n
+	l.Length++
+
+	return nil
+}
+
+func (l *LinkedList) PrintAll() error {
+	current := l.Head
+	for i := 0; i < l.Length; i++{
+		fmt.Println(current.Value)
+		current = current.Next
+	}
+
+	return nil
 }
