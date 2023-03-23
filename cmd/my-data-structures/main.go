@@ -26,4 +26,7 @@ func main() {
 	// Print the linked list.
 	fmt.Println(ll.Length)
 
+	// Find a node in the linked list.
+	fmt.Println(ll.Find(100))
+
 }
