@@ -9,7 +9,7 @@ func (l *LinkedList) Append(n *Node) {
 		l.Tail.Next = n
 		l.Tail = n
 	}
-	l.length++
+	l.Length++
 }
 
 // Prepend adds a node to the beginning of the linked list.
@@ -21,6 +21,6 @@ func (l *LinkedList) Prepend(n *Node) {
 		n.Next = l.Head
 		l.Head = n
 	}
-	l.length++
+	l.Length++
 }
 
