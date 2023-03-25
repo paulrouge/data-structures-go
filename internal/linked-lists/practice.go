@@ -1,5 +1,7 @@
 package linkedlists
 
+import "fmt"
+
 func RunExample() {
 
 	// Create a new linked list.
@@ -25,7 +27,11 @@ func RunExample() {
 	ll.PrintAll()
 
 	// remove index 4
-	ll.RemoveIndex(2)
+	err := ll.RemoveIndex(5)
+	if err != nil{
+		fmt.Println(err)
+		return
+	}
 
 	ll.PrintAll()
 }

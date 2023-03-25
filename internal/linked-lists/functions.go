@@ -1,6 +1,9 @@
 package linkedlists
 
-import "fmt"
+import (
+	"fmt"
+	
+)
 
 // Append adds a node to the end of the linked list.
 func (l *LinkedList) Append(n *Node) {
@@ -54,12 +57,21 @@ func (l *LinkedList) DeleteValue(v int) {
 
 
 // Remove index removes the node at the given index
-func (l *LinkedList) RemoveIndex(index int) {
+func (l *LinkedList) RemoveIndex(index int) error {
+	if index < 0 || index >= l.Length - 1 {
+		return fmt.Errorf("Index out of bound. %v", index)	
+	}
+
 	// start at beginning
 	leading_node := l.Head
+
+	// if index is zero, set head as head.next
+	if index == 0 {
+		l.Head = leading_node.Next
+	}
 	
 	// get the node before target index
-	for i := 0; i < index - 1; i++ {
+	for i := 0; i < index -1; i++ {
 		leading_node = leading_node.Next
 	}
 	
@@ -70,6 +82,8 @@ func (l *LinkedList) RemoveIndex(index int) {
 	leading_node.Next = following_node
 
 	l.Length--
+
+	return nil
 }
 
 // Insert insert a node based on givin index.
