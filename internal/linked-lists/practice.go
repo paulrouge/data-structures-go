@@ -2,7 +2,7 @@ package linkedlists
 
 import "fmt"
 
-func RunExample() {
+func Example() {
 
 	// Create a new linked list.
 	ll := LinkedList{}
@@ -34,4 +34,23 @@ func RunExample() {
 	}
 
 	ll.PrintAll()
+}
+
+func DoublyExample(){
+	// create a new doubly linked list
+	dll := DoublyLinkedList{}
+
+	// create nodes
+	n1 := DoublyNode{Value: 10}
+	n2 := DoublyNode{Value:4}
+	
+	// append to doubly linked list
+	dll.Append(&n1)
+	dll.Append(&n2)
+
+	err := dll.PrintAll()
+	if err != nil {
+		fmt.Println(err)
+	}
+
 }

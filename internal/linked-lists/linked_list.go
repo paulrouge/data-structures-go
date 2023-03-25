@@ -6,3 +6,8 @@ type LinkedList struct {
 	Length int
 }
 
+type DoublyLinkedList struct {
+	Head *DoublyNode
+	Tail *DoublyNode
+	Length int
+}

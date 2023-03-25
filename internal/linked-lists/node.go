@@ -6,3 +6,9 @@ type Node struct {
 	Next  *Node
 }
 
+// DoublyNode represent a node in a doubly linked list
+type DoublyNode struct {
+	Value int
+	Next *DoublyNode
+	Previous *DoublyNode
+}
