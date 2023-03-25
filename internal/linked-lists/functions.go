@@ -42,6 +42,7 @@ func (l *LinkedList) Find(v int) *Node {
 // Delete removes the first node with the given value.
 func (l *LinkedList) DeleteValue(v int) {
 	current := l.Head
+
 	for current != nil {
 		if current.Value == v {
 			current.Value = current.Next.Value
