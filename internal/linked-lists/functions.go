@@ -72,7 +72,7 @@ func (l *LinkedList) RemoveIndex(index int) {
 }
 
 func (l *LinkedList) PrintAll() {
-	fmt.Printf("\n---------\n")
+	fmt.Printf("---------\n")
 	
 	// start at firs node
 	current := l.Head
@@ -83,3 +83,4 @@ func (l *LinkedList) PrintAll() {
 	}
 
 }
+
