@@ -23,6 +23,26 @@ func (dll *DoublyLinkedList) Append (n *DoublyNode){
 	dll.Length++
 }
 
+func (dll *DoublyLinkedList) Prepend(n *DoublyNode) {
+	// if head is nil this is the first node in the list so tail and head are this node
+	if dll.Head == nil {
+		dll.Head = n
+		dll.Tail = n
+	} else {
+		// new node is previous node of current head
+		dll.Head.Previous = n
+		
+		// current head is the next node of new node
+		n.Next = dll.Head
+
+		// new node is new head
+		dll.Head = n
+	}
+
+	dll.Length ++
+}
+
+
 func (dll *DoublyLinkedList) PrintAll() error {
 	fmt.Printf("---------\n")
 	if (dll.Length == 0){

@@ -43,10 +43,14 @@ func DoublyExample(){
 	// create nodes
 	n1 := DoublyNode{Value: 10}
 	n2 := DoublyNode{Value:4}
+	n3 := DoublyNode{Value: 99}
 	
 	// append to doubly linked list
 	dll.Append(&n1)
 	dll.Append(&n2)
+
+	// prepend 
+	dll.Prepend(&n3)
 
 	err := dll.PrintAll()
 	if err != nil {
