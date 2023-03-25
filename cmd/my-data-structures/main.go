@@ -11,22 +11,29 @@ func main() {
 	// Create a new linked list.
 	ll := linkedlists.LinkedList{}
 
-	// Create a new node.
-	n := linkedlists.Node{Value: 1}
-
-	// Append the node to the linked list.
-	ll.Append(&n)
-
-	// Create a new node.
+	// Create nodes.
+	n1 := linkedlists.Node{Value: 1}
 	n2 := linkedlists.Node{Value: 21}
+	n3 := linkedlists.Node{Value: 15}
+	n4 := linkedlists.Node{Value: 307}
+	n5 := linkedlists.Node{Value: 88}
+	n6 := linkedlists.Node{Value: 36}
+	
+	
+	// Append the nodes to the linked list.
+	ll.Append(&n1)
+	ll.Append(&n2)
+	ll.Append(&n3)
+	ll.Append(&n4)
+	ll.Append(&n5)
+	ll.Append(&n6)
 
-	// Prepend the node to the linked list.
-	ll.Prepend(&n2)
 
 	// Print the linked list.
-	fmt.Println(ll.Length)
+	ll.PrintAll()
 
-	// Find a node in the linked list.
-	fmt.Println(ll.Find(100))
+	// remove index 4
+	ll.RemoveIndex(2)
 
+	ll.PrintAll()
 }
