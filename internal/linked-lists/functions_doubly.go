@@ -47,33 +47,31 @@ func (dll *DoublyLinkedList) Insert(index int, n *DoublyNode) error {
 	if index == 0 {
 		dll.Prepend(n)
 		return nil
-	} 
-	if index >= dll.Length {		
+	} else if index >= dll.Length {
 		dll.Append(n)
 		return nil
 	} else {
-
+		
 		current := dll.Head
 
-		// get the node on the current index
+		// get node at given index
 		for i := 0; i < index; i++ {
 			current = current.Next
 		}
 
-		// set Next of previous leading node of current index to new node
-		current.Previous.Next = n
-
-		// set Previous of preivous following of current index to new node
-		current.Next.Previous = n
-
-		// set previous and next of new node
-		n.Previous = current.Previous
+		// set Next op new node
 		n.Next = current
 
+		// set Previous of new node
+		n.Previous = current.Previous
+
+		// point leader of selected node to new node
+		current.Previous.Next = n
+
 		dll.Length ++
+
 		return nil
 	}
-		
 }
 
 func (dll *DoublyLinkedList) PrintAll() error {
