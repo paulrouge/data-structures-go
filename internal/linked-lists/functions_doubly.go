@@ -43,13 +43,49 @@ func (dll *DoublyLinkedList) Prepend(n *DoublyNode) {
 }
 
 
+func (dll *DoublyLinkedList) Insert(index int, n *DoublyNode) error {
+	if index == 0 {
+		dll.Prepend(n)
+		return nil
+	} 
+	if index >= dll.Length {		
+		dll.Append(n)
+		return nil
+	} else {
+
+		current := dll.Head
+
+		// get the node on the current index
+		for i := 0; i < index; i++ {
+			current = current.Next
+		}
+
+		// set Next of previous leading node of current index to new node
+		current.Previous.Next = n
+
+		// set Previous of preivous following of current index to new node
+		current.Next.Previous = n
+
+		// set previous and next of new node
+		n.Previous = current.Previous
+		n.Next = current
+
+		dll.Length ++
+		return nil
+	}
+		
+}
+
 func (dll *DoublyLinkedList) PrintAll() error {
 	fmt.Printf("---------\n")
+	
 	if (dll.Length == 0){
 		return fmt.Errorf("Doubly List is empty.")
 	}
+
 	current := dll.Head
-	for i := 0; i < dll.Length; i++ {
+	
+	for i := 0; i <= dll.Length -1; i++ {
 		fmt.Println(current.Value)
 		current = current.Next
 	}

@@ -44,17 +44,22 @@ func DoublyExample(){
 	n1 := DoublyNode{Value: 10}
 	n2 := DoublyNode{Value:4}
 	n3 := DoublyNode{Value: 99}
+	n4 := DoublyNode{Value:129}
+	n5 := DoublyNode{Value:7}
 	
 	// append to doubly linked list
 	dll.Append(&n1)
 	dll.Append(&n2)
-
+	dll.Append(&n4)
+	
 	// prepend 
 	dll.Prepend(&n3)
 
-	err := dll.PrintAll()
-	if err != nil {
-		fmt.Println(err)
-	}
+	dll.PrintAll()
+	
+	// insert
+	dll.Insert(2, &n5)
+
+	dll.PrintAll()
 
 }
