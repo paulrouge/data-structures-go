@@ -12,3 +12,15 @@ type DoublyNode struct {
 	Next *DoublyNode
 	Previous *DoublyNode
 }
+
+type LinkedList struct {
+	Head *Node
+	Tail *Node
+	Length int
+}
+
+type DoublyLinkedList struct {
+	Head *DoublyNode
+	Tail *DoublyNode
+	Length int
+}
