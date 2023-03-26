@@ -1,6 +1,6 @@
 package linkedlists
 
-import "fmt"
+// import "fmt"
 
 func Example() {
 
@@ -26,12 +26,8 @@ func Example() {
 	// Print the linked list.
 	ll.PrintAll()
 
-	// remove index 4
-	err := ll.RemoveIndex(5)
-	if err != nil{
-		fmt.Println(err)
-		return
-	}
+	// reversed ll
+	ll.Reverse()
 
 	ll.PrintAll()
 }

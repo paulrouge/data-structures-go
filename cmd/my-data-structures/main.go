@@ -8,7 +8,7 @@ import (
 func main() {
 	fmt.Println("Main ran...")
 
-	// linkedlists.Example()
-	linkedlists.DoublyExample()
+	linkedlists.Example()
+	// linkedlists.DoublyExample()
 
 }

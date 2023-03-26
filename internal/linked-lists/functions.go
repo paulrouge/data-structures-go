@@ -6,7 +6,7 @@ import (
 )
 
 // Append adds a node to the end of the linked list.
-func (l *LinkedList) Append(n *Node) {
+func (l *LinkedList) Append(n *Node) error {
 	if l.Head == nil {
 		l.Head = n
 		l.Tail = n
@@ -15,10 +15,11 @@ func (l *LinkedList) Append(n *Node) {
 		l.Tail = n
 	}
 	l.Length++
+	return nil
 }
 
 // Prepend adds a node to the beginning of the linked list.
-func (l *LinkedList) Prepend(n *Node) {
+func (l *LinkedList) Prepend(n *Node) error {
 	if l.Head == nil {
 		l.Head = n
 		l.Tail = n
@@ -27,6 +28,7 @@ func (l *LinkedList) Prepend(n *Node) {
 		l.Head = n
 	}
 	l.Length++
+	return nil
 }
 
 // Find returns the first node with the given value.
@@ -114,6 +116,34 @@ func (l *LinkedList) Insert(index int, n *Node) error {
 	return nil
 }
 
+func (l *LinkedList) Reverse() error {
+	if l.Length <= 1 { 
+		return nil
+	}
+
+	// cache node, instiante as nil pointer
+	var prev *Node
+	current := l.Head
+	
+	for current != nil {
+		// grab the next pointer of the current node
+		next := current.Next
+		
+		// set the next pointer of the current node pointing to te previous handled node
+		current.Next = prev
+		
+		// set the cache node to the current node
+		prev = current
+
+		// on the the next node
+		current = next
+	}
+	
+	l.Head = prev
+
+
+	return nil
+}
 
 func (l *LinkedList) PrintAll() {
 	fmt.Printf("---------\n")
@@ -121,7 +151,7 @@ func (l *LinkedList) PrintAll() {
 	// start at first node
 	current := l.Head
 
-	for i := 0; i < l.Length -1; i++{
+	for current != nil {
 		fmt.Println(current.Value)
 		current = current.Next
 	}
