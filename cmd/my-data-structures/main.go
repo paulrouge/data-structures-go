@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"data-structures/internal/linked-lists"
+	"fmt"
 )
 
 func main() {

@@ -8,19 +8,19 @@ type Node struct {
 
 // DoublyNode represent a node in a doubly linked list
 type DoublyNode struct {
-	Value int
-	Next *DoublyNode
+	Value    int
+	Next     *DoublyNode
 	Previous *DoublyNode
 }
 
 type LinkedList struct {
-	Head *Node
-	Tail *Node
+	Head   *Node
+	Tail   *Node
 	Length int
 }
 
 type DoublyLinkedList struct {
-	Head *DoublyNode
-	Tail *DoublyNode
+	Head   *DoublyNode
+	Tail   *DoublyNode
 	Length int
 }

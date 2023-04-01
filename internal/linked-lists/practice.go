@@ -14,7 +14,7 @@ func Example() {
 	n4 := Node{Value: 307}
 	n5 := Node{Value: 88}
 	n6 := Node{Value: 36}
-	
+
 	// Append the nodes to the linked list.
 	ll.Append(&n1)
 	ll.Append(&n2)
@@ -36,27 +36,27 @@ func Example() {
 
 }
 
-func DoublyExample(){
+func DoublyExample() {
 	// create a new doubly linked list
 	dll := DoublyLinkedList{}
 
 	// create nodes
 	n1 := DoublyNode{Value: 10}
-	n2 := DoublyNode{Value:4}
+	n2 := DoublyNode{Value: 4}
 	n3 := DoublyNode{Value: 99}
-	n4 := DoublyNode{Value:129}
-	n5 := DoublyNode{Value:7}
-	
+	n4 := DoublyNode{Value: 129}
+	n5 := DoublyNode{Value: 7}
+
 	// append to doubly linked list
 	dll.Append(&n1)
 	dll.Append(&n2)
 	dll.Append(&n4)
-	
-	// prepend 
+
+	// prepend
 	dll.Prepend(&n3)
 
 	dll.PrintAll()
-	
+
 	// insert
 	dll.Insert(2, &n5)
 

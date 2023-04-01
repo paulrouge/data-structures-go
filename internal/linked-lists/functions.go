@@ -2,7 +2,6 @@ package linkedlists
 
 import (
 	"fmt"
-	
 )
 
 // Append adds a node to the end of the linked list.
@@ -57,11 +56,10 @@ func (l *LinkedList) DeleteValue(v int) {
 	}
 }
 
-
 // Remove index removes the node at the given index
 func (l *LinkedList) RemoveIndex(index int) error {
-	if index < 0 || index >= l.Length - 1 {
-		return fmt.Errorf("Index out of bound. %v", index)	
+	if index < 0 || index >= l.Length-1 {
+		return fmt.Errorf("Index out of bound. %v", index)
 	}
 
 	// start at beginning
@@ -71,15 +69,15 @@ func (l *LinkedList) RemoveIndex(index int) error {
 	if index == 0 {
 		l.Head = leading_node.Next
 	}
-	
+
 	// get the node before target index
-	for i := 0; i < index -1; i++ {
+	for i := 0; i < index-1; i++ {
 		leading_node = leading_node.Next
 	}
-	
+
 	// get the node after the target index
 	following_node := leading_node.Next.Next
-	
+
 	// point the leading node to following (instead of to target)
 	leading_node.Next = following_node
 
@@ -117,7 +115,7 @@ func (l *LinkedList) Insert(index int, n *Node) error {
 }
 
 func (l *LinkedList) Reverse() error {
-	if l.Length <= 1 { 
+	if l.Length <= 1 {
 		return nil
 	}
 
@@ -129,16 +127,16 @@ func (l *LinkedList) Reverse() error {
 	for current != nil {
 		// grap the following of current (needed to continue to the next iteration, as current.Next will be set to previous)
 		next := current.Next
-		
+
 		// set the new previous
 		current.Next = previous
-		
+
 		// update the previous to current
 		previous = current
-		
+
 		l.Head = current
 		current = next
-		
+
 	}
 
 	return nil
@@ -146,7 +144,7 @@ func (l *LinkedList) Reverse() error {
 
 func (l *LinkedList) PrintAll() error {
 	fmt.Printf("---------\n")
-	
+
 	// start at first node
 	current := l.Head
 
@@ -156,4 +154,3 @@ func (l *LinkedList) PrintAll() error {
 	}
 	return nil
 }
-

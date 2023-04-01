@@ -4,7 +4,7 @@ import "fmt"
 
 // functions for the doubly linked list
 
-func (dll *DoublyLinkedList) Append (n *DoublyNode){
+func (dll *DoublyLinkedList) Append(n *DoublyNode) {
 	// if head is nil, list is empty, set node as head & tail
 	if dll.Head == nil {
 		dll.Head = n
@@ -12,10 +12,10 @@ func (dll *DoublyLinkedList) Append (n *DoublyNode){
 	} else {
 		// new tail node has the previous tail as previous node
 		n.Previous = dll.Tail
-		
+
 		// the previous tail has the new tail as next node
 		n.Previous.Next = n
-		
+
 		// the new tail of the dll is the new node
 		dll.Tail = n
 	}
@@ -31,7 +31,7 @@ func (dll *DoublyLinkedList) Prepend(n *DoublyNode) {
 	} else {
 		// new node is previous node of current head
 		dll.Head.Previous = n
-		
+
 		// current head is the next node of new node
 		n.Next = dll.Head
 
@@ -39,9 +39,8 @@ func (dll *DoublyLinkedList) Prepend(n *DoublyNode) {
 		dll.Head = n
 	}
 
-	dll.Length ++
+	dll.Length++
 }
-
 
 func (dll *DoublyLinkedList) Insert(index int, n *DoublyNode) error {
 	if index == 0 {
@@ -51,7 +50,7 @@ func (dll *DoublyLinkedList) Insert(index int, n *DoublyNode) error {
 		dll.Append(n)
 		return nil
 	} else {
-		
+
 		current := dll.Head
 
 		// get node at given index
@@ -68,7 +67,7 @@ func (dll *DoublyLinkedList) Insert(index int, n *DoublyNode) error {
 		// point leader of selected node to new node
 		current.Previous.Next = n
 
-		dll.Length ++
+		dll.Length++
 
 		return nil
 	}
@@ -76,14 +75,14 @@ func (dll *DoublyLinkedList) Insert(index int, n *DoublyNode) error {
 
 func (dll *DoublyLinkedList) PrintAll() error {
 	fmt.Printf("---------\n")
-	
-	if (dll.Length == 0){
+
+	if dll.Length == 0 {
 		return fmt.Errorf("Doubly List is empty.")
 	}
 
 	current := dll.Head
-	
-	for i := 0; i <= dll.Length -1; i++ {
+
+	for i := 0; i <= dll.Length-1; i++ {
 		fmt.Println(current.Value)
 		current = current.Next
 	}
