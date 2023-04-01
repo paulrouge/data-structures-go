@@ -1,6 +1,6 @@
 package linkedlists
 
-// import "fmt"
+import "fmt"
 
 func Example() {
 
@@ -27,9 +27,13 @@ func Example() {
 	ll.PrintAll()
 
 	// reversed ll
-	ll.Reverse()
+	err := ll.Reverse()
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	ll.PrintAll()
+
 }
 
 func DoublyExample(){

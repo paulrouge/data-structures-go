@@ -121,31 +121,30 @@ func (l *LinkedList) Reverse() error {
 		return nil
 	}
 
-	// cache node, instiante as nil pointer
-	var prev *Node
+	// cache node, init as nil pointer, as the first node, will become the last node (pointing to nil)
+	var previous *Node
 	current := l.Head
-	
+	l.Tail = current
+
 	for current != nil {
-		// grab the next pointer of the current node
+		// grap the following of current (needed to continue to the next iteration, as current.Next will be set to previous)
 		next := current.Next
 		
-		// set the next pointer of the current node pointing to te previous handled node
-		current.Next = prev
+		// set the new previous
+		current.Next = previous
 		
-		// set the cache node to the current node
-		prev = current
-
-		// on the the next node
+		// update the previous to current
+		previous = current
+		
+		l.Head = current
 		current = next
+		
 	}
-	
-	l.Head = prev
-
 
 	return nil
 }
 
-func (l *LinkedList) PrintAll() {
+func (l *LinkedList) PrintAll() error {
 	fmt.Printf("---------\n")
 	
 	// start at first node
@@ -155,6 +154,6 @@ func (l *LinkedList) PrintAll() {
 		fmt.Println(current.Value)
 		current = current.Next
 	}
-
+	return nil
 }
 
